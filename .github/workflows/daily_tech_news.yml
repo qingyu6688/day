@@ -1,0 +1,46 @@
+# ========================================
+# 每日科技资讯推送 - GitHub Actions 工作流
+# ========================================
+# 功能：每天北京时间早上 8 点自动运行，
+#       抓取过去 24 小时的科技资讯，
+#       通过 Server酱 推送到微信。
+#
+# 开发者：maorongkang@gmail.com
+# ========================================
+
+name: 每日科技资讯推送
+
+on:
+  # 定时触发：GitHub Actions 的 cron 使用 UTC 时区
+  # 北京时间 08:00 = UTC 00:00
+  schedule:
+    - cron: '0 0 * * *'
+
+  # 也支持手动触发，方便调试
+  workflow_dispatch:
+
+jobs:
+  fetch-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 第一步：拉取仓库代码
+      - name: 拉取仓库代码
+        uses: actions/checkout@v4
+
+      # 第二步：配置 Python 运行环境
+      - name: 配置 Python 环境
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # 第三步：安装 Python 依赖
+      - name: 安装依赖
+        run: pip install -r requirements.txt
+
+      # 第四步：执行抓取脚本并推送
+      # SERVERCHAN_SENDKEY 需要在仓库的 Settings -> Secrets and variables -> Actions 中配置
+      - name: 运行资讯抓取与推送脚本
+        env:
+          SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}
+        run: python fetch_news.py
