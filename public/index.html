@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科技日报 · 2026年03月02日</title>
+    <meta name="description" content="2026年03月02日的科技资讯汇总，涵盖国内外科技动态">
+    <style>
+        /* ======================================== */
+        /* 基础重置与全局变量                         */
+        /* 设计风格：浅色调、商务蓝灰、专业工作台感    */
+        /* ======================================== */
+
+        :root {
+            /* 基础层 - 浅色调背景体系 */
+            --bg-page: #F5F7FA;
+            --bg-surface: #FFFFFF;
+            --bg-subtle: #EEF2F6;
+            --bg-hover: #F8FAFC;
+
+            /* 边框 */
+            --border-default: #DDE3EA;
+            --border-strong: #C8D1DC;
+            --border-light: #E8ECF1;
+
+            /* 文字 */
+            --text-primary: #1F2937;
+            --text-secondary: #4B5563;
+            --text-muted: #6B7280;
+            --text-disabled: #9CA3AF;
+
+            /* 品牌色 - 低饱和商务蓝 */
+            --brand-primary: #2F5D8A;
+            --brand-hover: #274F75;
+            --brand-soft: #EAF2FA;
+            --brand-soft-border: #C9DBEE;
+
+            /* 语义色 */
+            --success-text: #2F6B43;
+            --success-bg: #EAF6EE;
+            --warning-text: #8A5A1F;
+            --warning-bg: #FFF5E8;
+            --error-text: #8A2C2C;
+            --error-bg: #FDEEEE;
+
+            /* 圆角 */
+            --radius-sm: 8px;
+            --radius-md: 10px;
+            --radius-lg: 12px;
+
+            /* 阴影 - 柔和低对比 */
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.03);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI",
+                         "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+                         "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ======================================== */
+        /* 页面容器                                   */
+        /* ======================================== */
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 20px 16px 40px;
+        }
+
+        /* ======================================== */
+        /* 顶部头部区域                               */
+        /* ======================================== */
+
+        .header {
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            padding: 28px 24px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-logo {
+            width: 40px;
+            height: 40px;
+            background: var(--brand-soft);
+            border: 1px solid var(--brand-soft-border);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .header-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: -0.3px;
+        }
+
+        .header-date-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: var(--bg-subtle);
+            border-radius: 20px;
+            font-size: 13px;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-light);
+        }
+
+        .header-divider {
+            height: 1px;
+            background: var(--border-light);
+            margin-bottom: 16px;
+        }
+
+        .header-stats {
+            display: flex;
+            gap: 24px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .stat-value {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--brand-primary);
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* ======================================== */
+        /* 分区标题                                   */
+        /* ======================================== */
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0 4px;
+            margin-bottom: 12px;
+            margin-top: 8px;
+        }
+
+        .section-flag {
+            font-size: 15px;
+        }
+
+        .section-text {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .section-line {
+            flex: 1;
+            height: 1px;
+            background: var(--border-default);
+        }
+
+        /* ======================================== */
+        /* 来源分区卡片                               */
+        /* ======================================== */
+
+        .source-section {
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-light);
+            margin-bottom: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .source-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--border-light);
+            background: var(--bg-subtle);
+        }
+
+        .source-icon {
+            font-size: 16px;
+        }
+
+        .source-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            flex: 1;
+        }
+
+        .source-count {
+            font-size: 12px;
+            color: var(--text-muted);
+            padding: 2px 8px;
+            background: var(--bg-surface);
+            border-radius: 10px;
+            border: 1px solid var(--border-default);
+        }
+
+        /* ======================================== */
+        /* 新闻条目                                   */
+        /* ======================================== */
+
+        .news-list {
+            padding: 4px 0;
+        }
+
+        .news-item {
+            display: block;
+            padding: 12px 18px;
+            text-decoration: none;
+            color: inherit;
+            border-bottom: 1px solid var(--border-light);
+            transition: background-color 0.15s ease;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-item:hover {
+            background-color: var(--bg-hover);
+        }
+
+        .news-item-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .news-index {
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #FFFFFF;
+            margin-top: 2px;
+        }
+
+        .news-title {
+            flex: 1;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+
+        .news-time {
+            flex-shrink: 0;
+            font-size: 12px;
+            color: var(--text-disabled);
+            margin-top: 3px;
+        }
+
+        .news-summary {
+            margin-top: 6px;
+            margin-left: 32px;
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .overflow-note {
+            padding: 10px 18px;
+            font-size: 13px;
+            color: var(--text-muted);
+            text-align: center;
+            border-top: 1px solid var(--border-light);
+            background: var(--bg-subtle);
+        }
+
+        /* ======================================== */
+        /* Hacker News 专区                          */
+        /* ======================================== */
+
+        .hn-section {
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-light);
+            margin-bottom: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .hn-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--border-light);
+            background: var(--bg-subtle);
+        }
+
+        .hn-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 18px;
+            border-bottom: 1px solid var(--border-light);
+            transition: background-color 0.15s ease;
+        }
+
+        .hn-item:last-child {
+            border-bottom: none;
+        }
+
+        .hn-item:hover {
+            background-color: var(--bg-hover);
+        }
+
+        .hn-rank {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-muted);
+            background: var(--bg-subtle);
+            border-radius: 6px;
+            margin-top: 1px;
+        }
+
+        .hn-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        /* HN 标题链接：去掉默认下划线，保持颜色 */
+        .hn-title-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .hn-title-link:hover .hn-title {
+            color: var(--brand-primary);
+        }
+
+        .hn-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+            line-height: 1.5;
+            word-break: break-word;
+        }
+
+        .hn-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 4px;
+        }
+
+        .hn-score {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 1px 6px;
+            border-radius: 4px;
+        }
+
+        .heat-normal {
+            color: var(--text-muted);
+            background: var(--bg-subtle);
+        }
+
+        .heat-warm {
+            color: var(--warning-text);
+            background: var(--warning-bg);
+        }
+
+        .heat-hot {
+            color: var(--error-text);
+            background: var(--error-bg);
+        }
+
+        .hn-comments {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .hn-comments:hover {
+            color: var(--brand-primary);
+        }
+
+        /* ======================================== */
+        /* 空状态                                     */
+        /* ======================================== */
+
+        .empty-state {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .empty-icon {
+            font-size: 32px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .empty-state p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* ======================================== */
+        /* 页脚                                       */
+        /* ======================================== */
+
+        .footer {
+            text-align: center;
+            padding: 24px 16px;
+            color: var(--text-disabled);
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .footer-divider {
+            width: 40px;
+            height: 2px;
+            background: var(--border-default);
+            border-radius: 1px;
+            margin: 0 auto 12px;
+        }
+
+        /* ======================================== */
+        /* 移动端适配（微信内置浏览器）                 */
+        /* ======================================== */
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 12px 10px 32px;
+            }
+
+            .header {
+                padding: 20px 16px;
+            }
+
+            .header-top {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .header-stats {
+                gap: 20px;
+            }
+
+            .stat-value {
+                font-size: 20px;
+            }
+
+            .news-item {
+                padding: 10px 14px;
+            }
+
+            .hn-item {
+                padding: 10px 14px;
+            }
+
+            .source-header, .hn-header {
+                padding: 12px 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部区域 -->
+        <div class="header">
+            <div class="header-top">
+                <div class="header-brand">
+                    <div class="header-logo">📰</div>
+                    <span class="header-title">科技日报</span>
+                </div>
+                <div class="header-date-badge">
+                    📅 2026年03月02日 星期一
+                </div>
+            </div>
+            <div class="header-divider"></div>
+            <div class="header-stats">
+                <div class="stat-item">
+                    <span class="stat-value">98</span>
+                    <span class="stat-label">资讯总数</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">5</span>
+                    <span class="stat-label">数据来源</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">03:27</span>
+                    <span class="stat-label">更新时间</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 国内科技动态 -->
+        <div class="section-title">
+            <span class="section-flag">🇨🇳</span>
+            <span class="section-text">国内科技动态</span>
+            <span class="section-line"></span>
+        </div>
+
+        
+        <div class="source-section">
+            <div class="source-header">
+                <span class="source-icon">📊</span>
+                <span class="source-name">36氪 · 快讯</span>
+                <span class="source-count">20 条</span>
+            </div>
+            <div class="news-list">
+                
+            <a href="https://36kr.com/newsflashes/3704196066685065?f=rss" target="_blank" class="news-item" rel="noopener">
+                <div class="news-item-header">
+                    <span class="news-index" style="background:#2F5D8A;">1</span>
+                    <h3 class="news-title">国投白银LOF：3月2日开市起至当日10:30停牌</h3>
+                    <span class="news-time">17:43</span>
+                </div>
+                <p class="news-summary">36氪获悉，国投瑞银基金公告称，旗下国投瑞银白银期货证券投资基金（LOF）A类基金份额二级市场交易价格明显高于基金份额净值，出现较大幅度溢价。为保护投资者利益，该基金将于2026年3月2日开市起至当日10:30停牌，10:30复牌，停牌期间...</p>
+            </a>
+            
+            <a href="https://36kr.com/newsflashes/3704194387603841?f=rss" target="_blank" class="news-item" rel="noopener">
+                <div class="news-item-header">
+                    <span class="news-index" style="background:#2F5D8A;">2</span>
+                    <h3 class="news-title">天宜新材：预重整产业投资人遴选完成，紫光通信联合体为正选</h3>
+                    <span class="news-time">17:41</span>
+                </div>
+                <p class="news-summary">36氪获悉，天宜新材公告，公司预重整产业投资人遴选已完成，确定紫光通信联合体中的北京紫光通信科技集团有限公司和全讯汇聚网络科技（北京）有限公司为正选产业投资人，泰州衡川新能源材料科技有限公司-北京深蓝重整咨询有限公司-青岛熙正盈启私募股权投...</p>
+            </a>
+            
+            <a href="https://36kr.com/newsflashes/3704179054358917?f=rss" target="_blank" class="news-item" rel="noopener">
+                <div class="news-item-header">
+                    <span class="news-index" style="background:#2F5D8A;">3</span>
+                    <h3 class="news-title">极氪：2月交付新车23867辆，同比增长70%</h3>
+                    <span class="news-time">17:25</span>
+                </div>
+                <p class="news-summary">36氪获悉，极氪2月交付新车23867辆，实现同比和环比双增长，同比增长70%。</p>
+            </a>
+            
+            <a href="https://36kr.com/newsflashes/3704169864442243?f=rss" target="_blank" class="news-item" rel="noopener">
+                <div class="news-item-header">
+                    <span class="news-index" style="background:#2F5D8A;">4</span>
+                    <h3 class="news-title">上汽集团：前2个月整车销量59.69万辆，同比增长6.76%</h3>
+                    <span class="news-time">17:16</span>
+                </div>
+                <p class="news-summary">36氪获悉，上汽集团公告，2026年2月份公司整车销量为26.95万辆，同比下降8.64%。2026年1—2月，公司累计整车销量为59.69万辆，较去年同期增长6.76%。其中，新能源汽车1—2月累计销量为15.67万辆，同比增长6.44%...</p>
+            </a>
+            
+            <a href="https://36kr.com/newsflashes/3704154313847176?f=rss" target="_blank" class="news-item" rel="noopener">
+                <div class="news-item-header">
+                    <span class="news-index" style="background:#2F5D8A;">5</span>
+                    <h3 class="news-title">长城汽车：2月新能源车销售12744台</h3>
+                    <span class="news-time">17:00</span>
+                </div>
+                <p class="news-summary">36氪获悉，长城汽车公告，2026年2月销量72594台，同比下降6.79%；1—2月累计销量162906台，同比增长2.58%。2月新能源车销售12744台，1—2月累计销售30773台。</p>
+            </a>
+            
+            <a href="https://36kr.com/newsflashes/3704134999928964?f=rss" target="_blank" class="news-item" rel="noopener">
+                <div class="news-item-header">
+                    <span class="news-index" style="background:#2F5D8A;">6</span>
+                    <h3 class="news-title">中文在线：向香港联交所递交境外上市股份（H股）发行上市申请</h3>
+                    <span class="news-time">16:40</span>
+                </div>
+                <p class="news-summary">36氪获悉，中文在线公告，公司已于2026年2月27日向香港联合交易所有限公司递交了发行境外上市股份（H股）并在香港联交所主板挂牌上市的申请，并于同日在香港联交所网站刊登了本次发行并上市的申请资料。</p>
+            </a>
+            
+            <a href="https://36kr.com/newsflashes/3704112524619905?f=rss" target="_blank" class="news-item" rel="noopener">
+                <div class="news-item-header">
+                    <span class="news-index" style="background:#2F5D8A;">7</span>
+                    <h3 class="news-title">特斯拉将Cybertruck双电机全轮驱动版售价提高至69990美元</h3>
+                    <span class="news-time">16:18</span>
+                </div>
+                <p class="news-summary">特斯拉将Cybertruck双电机全轮驱动版售价提高至69990美元。（财联社）</p>
+            </a>
+            
+            <a href="https://36kr.com/newsflashes/3704109817164164?f=rss" target="_blank" class="news-item" rel="noopener">
+                <div class="news-item-header">
+                    <span class="news-index" style="background:#2F5D8A;">8</span>
+                    <h3 class="news-title">小鹏汽车：2月共交付新车15256台</h3>
+                    <span class="news-time">16:15</span>
+                </div>
+                <p class="news-summary">36氪获悉，小鹏汽车公布最新交付成绩：2026年2月，小鹏汽车共交付新车15256台。</p>
+            </a>
+            
+            <a href="https://36kr.com/newsflashes/3704100740133256?f=rss" target="_blank" class="news-item" rel="noopener">
+                <div class="news-item-header">
+                    <span class="news-index" style="background:#2F5D8A;">9</span>
+                    <h3 class="news-title">中钨高新：无应披露未披露重大事项，市盈率显著高于行业水平</h3>
+                    <span class="news-time">16:06</span>
+                </div>
+                <p class="news-summary">36氪获悉，中钨高新公告，公司股票于2026年2月25日至27日连续三个交易日内收盘价格涨幅偏离值累计超过20%，属于股票交易异常波动。经核查，公司前期披露的信息不存在需要更正、补充之处；未发现近期公共传媒报道了可能或已经对公司股票交易价格...</p>
+            </a>
+            
+            <a href="https://36kr.com/newsflashes/3704084762325381?f=rss" target="_blank" class="news-item" rel="noopener">
+                <div class="news-item-header">
+                    <span class="news-index" style="background:#2F5D8A;">10</span>
+                    <h3 class="news-title">娃哈哈精机公司被决议解散，曾担负娃哈哈智能化、机器人研发等业务</h3>
+                    <span class="news-time">15:49</span>
+                </div>
+                <p class="news-summary">近日，有接近杭州娃哈哈精密机械有限公司（以下简称娃哈哈精机）人士透露，娃哈哈精机于2026年2月24日发布解散公示，现已依法进入解散程序。同时，其提供的材料显示，有娃哈哈精机员工收到了《终止劳动合同通知书》，员工与娃哈哈精机的劳动合同于2月...</p>
+            </a>
+            
+            </div>
+            <p class="overflow-note">还有 10 条未展示</p>
+        </div>
+        
+        <div class="source-section">
+            <div class="source-header">
+                <span class="source-icon">💻</span>
+                <span class="source-name">IT之家</span>
+                <span class="source-count">60 条</span>
+            </div>
+            <div class="news-list">
+                
+            <a href="https://www.ithome.com/0/924/868.htm" target="_blank" class="news-item" rel="noopener">
+                <div class="news-item-header">
+                    <span class="news-index" style="background:#2E6A57;">1</span>
+                    <h3 class="news-title">微软 Win10 停止支持约五个月后，Win11 市场份额已逼近 75% 大关</h3>
+                    <span class="news-time">23:39</span>
+                </div>
+                <p class="news-summary">IT之家 3 月 1 日消息，微软 Windows 11 操作系统终于迎来了真正的市场主导时刻。根据 StatCounter 最新统计数据，Windows 11 在全球桌面操作系统中的市场份额已达到 72.57%，较 2025 年底刚刚超过...</p>
+            </a>
+            
+            <a href="https://www.ithome.com/0/924/867.htm" target="_blank" class="news-item" rel="noopener">
+                <div class="news-item-header">
+                    <span class="news-index" style="background:#2E6A57;">2</span>
+                    <h3 class="news-title">Core AI 框架取代 Core ML？曝苹果 WWDC 26 开发者大会将公布多项 AI 功能</h3>
+                    <span class="news-time">23:28</span>
+                </div>
+                <p class="news-summary">IT之家 3 月 1 日消息，彭博社记者马克 · 古尔曼今天在最新一期《Power On》通讯中表示，苹果计划在 WWDC 26 开发者大会上发布全新 Core AI 框架，取代现有的 Core ML。古尔曼表示，苹果不太可能一下子就让 C...</p>
+            </a>
+            
+            <a href="https://www.ithome.com/0/924/866.htm" target="_blank" class="news-item" rel="noopener">
+                <div class="news-item-header">
+                    <span class="news-index" style="background:#2E6A57;">3</span>
+                    <h3 class="news-title">2026 年 2 月汽车销量 / 交付榜出炉：上汽集团 269465 辆第一、比亚迪 190190 辆新能源销冠</h3>
+                    <span class="news-time">23:19</span>
+                </div>
+                <p class="news-summary">IT之家 3 月 1 日消息，2026 年 2 月汽车销量 / 交付数据现已陆续公布，其中上汽集团交付量达 269465 辆位居榜首，其余多家新势力车企均有亮眼表现。IT之家汇总 2026 年 2 月汽车销量 / 交付榜单如下（包含目前已公...</p>
+            </a>
+            
+            <a href="https://www.ithome.com/0/924/865.htm" target="_blank" class="news-item" rel="noopener">
+                <div class="news-item-header">
+                    <span class="news-index" style="background:#2E6A57;">4</span>
+                    <h3 class="news-title">古尔曼：触控屏版 MacBook Pro 最快 2026 年底发布，苹果零售店正为下周发布会做准备</h3>
+                    <span class="news-time">22:40</span>
+                </div>
+                <p class="news-summary">IT之家 3 月 1 日消息，多年来，苹果粉丝一直梦想着公司能将 iPad 和 Mac 融合 —— 推出一款兼具电脑速度与续航、平板触摸界面的混合设备。尽管苹果公开否认这一构想，但彭博社记者马克 · 古尔曼的最新报道显示，苹果工程师们确实曾...</p>
+            </a>
+            
+            <a href="https://www.ithome.com/0/924/863.htm" target="_blank" class="news-item" rel="noopener">
+                <div class="news-item-header">
+                    <span class="news-index" style="background:#2E6A57;">5</span>
+                    <h3 class="news-title">2001 遇上 2021：海外网友制作“WinXP 风”Win11 壁纸</h3>
+                    <span class="news-time">22:35</span>
+                </div>
+                <p class="news-summary">IT之家 3 月 1 日消息，微软 WinXP 系统的默认桌面背景 Bliss（IT之家注：极乐）无疑是世界上最多人看过的壁纸之一，甚至成为一种时代符号，即使你不懂电脑也几乎肯定见过这张翠绿山丘和湛蓝天空交织的经典照片。随着时间推移，微软逐...</p>
+            </a>
+            
+            <a href="https://www.ithome.com/0/924/861.htm" target="_blank" class="news-item" rel="noopener">
+                <div class="news-item-header">
+                    <span class="news-index" style="background:#2E6A57;">6</span>
+                    <h3 class="news-title">万志强：魅族 23 已完成开发但不会推向市场，后续 Flyme 仍提供基本维护</h3>
+                    <span class="news-time">22:22</span>
+                </div>
+                <p class="news-summary">IT之家 3 月 1 日消息，魅族科技 2 月 27 日发布战略转型公告，宣布将暂停国内手机新产品自研硬件项目，引发用户担忧。星纪魅族集团中国区 CMO 万志强今晚在魅族京东自营店进行了直播，期间透露了部分有关魅族未来的规划，IT之家汇总如...</p>
+            </a>
+            
+            <a href="https://www.ithome.com/0/924/860.htm" target="_blank" class="news-item" rel="noopener">
+                <div class="news-item-header">
+                    <span class="news-index" style="background:#2E6A57;">7</span>
+                    <h3 class="news-title">【IT之家图赏】荣耀 Robot Phone 机器人手机现场实拍：三轴云台亮眼，号称“具身智能”加持</h3>
+                    <span class="news-time">22:17</span>
+                </div>
+                <p class="news-summary">IT之家 3 月 1 日消息，荣耀今晚在 MWC 2026 展会上带来了全新“机器人手机”Robot Phone，新机最显眼之处就是配备一颗硕大的电动翻转摄像头，号称是新形态具身智能 AI 终端。IT之家在西班牙巴塞罗那现场第一时间前往了荣...</p>
+            </a>
+            
+            <a href="https://www.ithome.com/0/924/857.htm" target="_blank" class="news-item" rel="noopener">
+                <div class="news-item-header">
+                    <span class="news-index" style="background:#2E6A57;">8</span>
+                    <h3 class="news-title">荣耀 MagicBook Pro 14 2026 笔记本海外发布：至高可选酷睿 Ultra X9 388H 处理器，14.6 英寸 OLED 触屏</h3>
+                    <span class="news-time">21:51</span>
+                </div>
+                <p class="news-summary">IT之家 3 月 1 日消息，荣耀今天在 MWC 2026 现场发布 MagicBook Pro 14 2026 笔记本，新品定位中高端，搭载英特尔“Panther Lake”处理器、14.6 英寸 OLED 触控屏。IT之家了解到，这款笔...</p>
+            </a>
+            
+            <a href="https://www.ithome.com/0/924/856.htm" target="_blank" class="news-item" rel="noopener">
+                <div class="news-item-header">
+                    <span class="news-index" style="background:#2E6A57;">9</span>
+                    <h3 class="news-title">荣耀机器人手机 Robot Phone 亮相 MWC 2026：3 轴云台 + 阿莱合作，具身智能加持的 AI 终端新形态</h3>
+                    <span class="news-time">21:40</span>
+                </div>
+                <p class="news-summary">IT之家 3 月 1 日消息，2026 世界移动通信大会前夕，荣耀在西班牙巴塞罗那举行了 MWC 2026 全球新品发布会。会上，荣耀带来了全新的“机器人手机”Robot Phone，配备了一颗硕大的电动翻转摄像头（翻转后摄像头可以旋转），...</p>
+            </a>
+            
+            <a href="https://www.ithome.com/0/924/855.htm" target="_blank" class="news-item" rel="noopener">
+                <div class="news-item-header">
+                    <span class="news-index" style="background:#2E6A57;">10</span>
+                    <h3 class="news-title">消息称卡普空将明年评估《生化危机》系列游戏用户反响，影响新作方向</h3>
+                    <span class="news-time">21:31</span>
+                </div>
+                <p class="news-summary">IT之家 3 月 1 日消息，消息人士 Dusk Golem 今天在 X 平台透露，卡普空将很快召开内部会议，评估《生化危机》系列游戏的用户反馈和数据。消息人士表示，卡普空是一家非常注重数据的公司，他们将在 2027 年《生化危机：代号维罗...</p>
+            </a>
+            
+            </div>
+            <p class="overflow-note">还有 50 条未展示</p>
+        </div>
+        
+        <div class="source-section">
+            <div class="source-header">
+                <span class="source-icon">📱</span>
+                <span class="source-name">少数派</span>
+                <span class="source-count">1 条</span>
+            </div>
+            <div class="news-list">
+                
+            <a href="https://sspai.com/post/106454" target="_blank" class="news-item" rel="noopener">
+                <div class="news-item-header">
+                    <span class="news-index" style="background:#8A5A1F;">1</span>
+                    <h3 class="news-title">一日一技｜用频谱分析找出「假无损」音乐</h3>
+                    <span class="news-time">15:54</span>
+                </div>
+                <p class="news-summary">你花钱买的高品质音乐，是真的「无损」吗？查看全文</p>
+            </a>
+            
+            </div>
+            
+        </div>
+        
+        <div class="source-section">
+            <div class="source-header">
+                <span class="source-icon">🔬</span>
+                <span class="source-name">Solidot</span>
+                <span class="source-count">2 条</span>
+            </div>
+            <div class="news-list">
+                
+            <a href="https://www.solidot.org/story?sid=83648" target="_blank" class="news-item" rel="noopener">
+                <div class="news-item-header">
+                    <span class="news-index" style="background:#2C6275;">1</span>
+                    <h3 class="news-title">美国加州和科罗拉多州计划要求在操作系统层级验证用户年龄</h3>
+                    <span class="news-time">18:52</span>
+                </div>
+                <p class="news-summary">美国多个州都要求成人网站验证访客年龄，但验证年龄的常用方法如扫描脸部或提供身份证件都存在泄露隐私的问题。加州以及科罗拉多州计划要求在操作系统层级验证年龄，然后通过 API 与应用共享。加州去年通过了 AB 1043 法案，要求操作系统开发商...</p>
+            </a>
+            
+            <a href="https://www.solidot.org/story?sid=83647" target="_blank" class="news-item" rel="noopener">
+                <div class="news-item-header">
+                    <span class="news-index" style="background:#2C6275;">2</span>
+                    <h3 class="news-title">Anthropic 的 Claude 在苹果美国区免费应用榜跃居第一</h3>
+                    <span class="news-time">18:27</span>
+                </div>
+                <p class="news-summary">本周五，美国总统特朗普下令联邦机构立刻停用 Anthropic 的 Claude 助手，原因是 Anthropic 在安全原则上坚守其立场。相比之下，其竞争对手 OpenAI 看起来完全没有任何立场，此举在美国用户中间引发了卸载 OpenA...</p>
+            </a>
+            
+            </div>
+            
+        </div>
+        
+
+        <!-- 海外科技热榜 -->
+        <div class="section-title">
+            <span class="section-flag">🌍</span>
+            <span class="section-text">Hacker News 热榜</span>
+            <span class="section-line"></span>
+        </div>
+
+        <div class="hn-section">
+            <div class="hn-header">
+                <span class="source-icon">🔥</span>
+                <span class="source-name">Hacker News</span>
+                <span class="source-count">Top 15</span>
+            </div>
+            
+            <div class="hn-item">
+                <div class="hn-rank">1</div>
+                <div class="hn-content">
+                    <a href="https://ghostty.org/docs" target="_blank" class="hn-title-link" rel="noopener">
+                        <h3 class="hn-title">Ghostty – Terminal Emulator</h3>
+                    </a>
+                    <div class="hn-meta">
+                        <span class="hn-score heat-hot">▲ 377</span>
+                        <a href="https://news.ycombinator.com/item?id=47206009" target="_blank"
+                           class="hn-comments" rel="noopener">💬 168</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hn-item">
+                <div class="hn-rank">2</div>
+                <div class="hn-content">
+                    <a href="http://karpathy.github.io/2026/02/12/microgpt/" target="_blank" class="hn-title-link" rel="noopener">
+                        <h3 class="hn-title">Microgpt</h3>
+                    </a>
+                    <div class="hn-meta">
+                        <span class="hn-score heat-hot">▲ 1458</span>
+                        <a href="https://news.ycombinator.com/item?id=47202708" target="_blank"
+                           class="hn-comments" rel="noopener">💬 255</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hn-item">
+                <div class="hn-rank">3</div>
+                <div class="hn-content">
+                    <a href="https://glthr.com/XML-fundamental-to-Claude" target="_blank" class="hn-title-link" rel="noopener">
+                        <h3 class="hn-title">Why XML Tags Are So Fundamental to Claude</h3>
+                    </a>
+                    <div class="hn-meta">
+                        <span class="hn-score heat-normal">▲ 78</span>
+                        <a href="https://news.ycombinator.com/item?id=47207236" target="_blank"
+                           class="hn-comments" rel="noopener">💬 35</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hn-item">
+                <div class="hn-rank">4</div>
+                <div class="hn-content">
+                    <a href="https://mlu-explain.github.io/decision-tree/" target="_blank" class="hn-title-link" rel="noopener">
+                        <h3 class="hn-title">Decision trees – the unreasonable power of nested decision rules</h3>
+                    </a>
+                    <div class="hn-meta">
+                        <span class="hn-score heat-hot">▲ 301</span>
+                        <a href="https://news.ycombinator.com/item?id=47204964" target="_blank"
+                           class="hn-comments" rel="noopener">💬 51</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hn-item">
+                <div class="hn-rank">5</div>
+                <div class="hn-content">
+                    <a href="https://atlas.flexport.com/" target="_blank" class="hn-title-link" rel="noopener">
+                        <h3 class="hn-title">Flightradar24 for Ships</h3>
+                    </a>
+                    <div class="hn-meta">
+                        <span class="hn-score heat-warm">▲ 112</span>
+                        <a href="https://news.ycombinator.com/item?id=47205637" target="_blank"
+                           class="hn-comments" rel="noopener">💬 27</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hn-item">
+                <div class="hn-rank">6</div>
+                <div class="hn-content">
+                    <a href="https://twitter.com/OpenAI/status/2027846016423321831" target="_blank" class="hn-title-link" rel="noopener">
+                        <h3 class="hn-title">We do not think Anthropic should be designated as a supply chain risk</h3>
+                    </a>
+                    <div class="hn-meta">
+                        <span class="hn-score heat-hot">▲ 729</span>
+                        <a href="https://news.ycombinator.com/item?id=47200420" target="_blank"
+                           class="hn-comments" rel="noopener">💬 394</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hn-item">
+                <div class="hn-rank">7</div>
+                <div class="hn-content">
+                    <a href="https://pyrefly.org/blog/container-inference-comparison/" target="_blank" class="hn-title-link" rel="noopener">
+                        <h3 class="hn-title">Python Type Checker Comparison: Empty Container Inference</h3>
+                    </a>
+                    <div class="hn-meta">
+                        <span class="hn-score heat-normal">▲ 15</span>
+                        <a href="https://news.ycombinator.com/item?id=47151367" target="_blank"
+                           class="hn-comments" rel="noopener">💬 10</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hn-item">
+                <div class="hn-rank">8</div>
+                <div class="hn-content">
+                    <a href="https://www.gimp.org/news/2026/02/22/%C3%B8yvind-kol%C3%A5s-interview-ww2017/" target="_blank" class="hn-title-link" rel="noopener">
+                        <h3 class="hn-title">Interview with Øyvind Kolås, GIMP developer (2017)</h3>
+                    </a>
+                    <div class="hn-meta">
+                        <span class="hn-score heat-normal">▲ 78</span>
+                        <a href="https://news.ycombinator.com/item?id=47168405" target="_blank"
+                           class="hn-comments" rel="noopener">💬 32</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hn-item">
+                <div class="hn-rank">9</div>
+                <div class="hn-content">
+                    <a href="https://github.com/shiehn/sas-audio-processor" target="_blank" class="hn-title-link" rel="noopener">
+                        <h3 class="hn-title">Show HN: Audio Toolkit for Agents</h3>
+                    </a>
+                    <div class="hn-meta">
+                        <span class="hn-score heat-normal">▲ 18</span>
+                        <a href="https://news.ycombinator.com/item?id=47207806" target="_blank"
+                           class="hn-comments" rel="noopener">💬 1</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hn-item">
+                <div class="hn-rank">10</div>
+                <div class="hn-content">
+                    <a href="https://smallcultfollowing.com/babysteps/blog/2026/02/27/dada-internal-references/" target="_blank" class="hn-title-link" rel="noopener">
+                        <h3 class="hn-title">How Dada Enables Internal References</h3>
+                    </a>
+                    <div class="hn-meta">
+                        <span class="hn-score heat-normal">▲ 9</span>
+                        <a href="https://news.ycombinator.com/item?id=47181256" target="_blank"
+                           class="hn-comments" rel="noopener">💬 2</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hn-item">
+                <div class="hn-rank">11</div>
+                <div class="hn-content">
+                    <a href="https://taylor.town/scrapscript-001" target="_blank" class="hn-title-link" rel="noopener">
+                        <h3 class="hn-title">Lil&#39; Fun Langs&#39; Guts</h3>
+                    </a>
+                    <div class="hn-meta">
+                        <span class="hn-score heat-normal">▲ 20</span>
+                        <a href="https://news.ycombinator.com/item?id=47207531" target="_blank"
+                           class="hn-comments" rel="noopener">💬 2</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hn-item">
+                <div class="hn-rank">12</div>
+                <div class="hn-content">
+                    <a href="https://modernaicourse.org" target="_blank" class="hn-title-link" rel="noopener">
+                        <h3 class="hn-title">10-202: Introduction to Modern AI (CMU)</h3>
+                    </a>
+                    <div class="hn-meta">
+                        <span class="hn-score heat-warm">▲ 175</span>
+                        <a href="https://news.ycombinator.com/item?id=47204559" target="_blank"
+                           class="hn-comments" rel="noopener">💬 42</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hn-item">
+                <div class="hn-rank">13</div>
+                <div class="hn-content">
+                    <a href="https://99helpers.com/tools/ad-supported-chat" target="_blank" class="hn-title-link" rel="noopener">
+                        <h3 class="hn-title">I built a demo of what AI chat will look like when it&#39;s &quot;free&quot; and ad-supported</h3>
+                    </a>
+                    <div class="hn-meta">
+                        <span class="hn-score heat-hot">▲ 337</span>
+                        <a href="https://news.ycombinator.com/item?id=47205890" target="_blank"
+                           class="hn-comments" rel="noopener">💬 214</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hn-item">
+                <div class="hn-rank">14</div>
+                <div class="hn-content">
+                    <a href="https://www.sciencedaily.com/releases/2026/02/260228093456.htm" target="_blank" class="hn-title-link" rel="noopener">
+                        <h3 class="hn-title">New iron nanomaterial wipes out cancer cells without harming healthy tissue</h3>
+                    </a>
+                    <div class="hn-meta">
+                        <span class="hn-score heat-warm">▲ 119</span>
+                        <a href="https://news.ycombinator.com/item?id=47207404" target="_blank"
+                           class="hn-comments" rel="noopener">💬 34</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hn-item">
+                <div class="hn-rank">15</div>
+                <div class="hn-content">
+                    <a href="https://ejholmes.github.io/2026/02/28/mcp-is-dead-long-live-the-cli.html" target="_blank" class="hn-title-link" rel="noopener">
+                        <h3 class="hn-title">When does MCP make sense vs CLI?</h3>
+                    </a>
+                    <div class="hn-meta">
+                        <span class="hn-score heat-normal">▲ 84</span>
+                        <a href="https://news.ycombinator.com/item?id=47208398" target="_blank"
+                           class="hn-comments" rel="noopener">💬 62</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- 页脚 -->
+        <div class="footer">
+            <div class="footer-divider"></div>
+            由 GitHub Actions 自动生成<br>
+            2026年03月02日 03:27 · 北京时间
+        </div>
+    </div>
+</body>
+</html>

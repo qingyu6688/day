@@ -3,7 +3,8 @@
 # ========================================
 # 功能：每天北京时间早上 8 点自动运行，
 #       抓取过去 24 小时的科技资讯，
-#       通过 Server酱 推送到微信。
+#       生成精美的 HTML 页面部署到 GitHub Pages，
+#       通过 Server酱 推送摘要和链接到微信。
 #
 # 开发者：maorongkang@gmail.com
 # ========================================
@@ -18,6 +19,11 @@ on:
 
   # 也支持手动触发，方便调试
   workflow_dispatch:
+
+# 需要写入权限来部署 GitHub Pages
+permissions:
+  contents: write
+  pages: write
 
 jobs:
   fetch-and-push:
@@ -38,9 +44,21 @@ jobs:
       - name: 安装依赖
         run: pip install -r requirements.txt
 
-      # 第四步：执行抓取脚本并推送
-      # SERVERCHAN_SENDKEY 需要在仓库的 Settings -> Secrets and variables -> Actions 中配置
+      # 第四步：执行抓取脚本
+      # 脚本会生成 HTML 页面到 public/ 目录，并通过 Server酱 推送摘要
       - name: 运行资讯抓取与推送脚本
         env:
           SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}
+          GITHUB_PAGES_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
         run: python fetch_news.py
+
+      # 第五步：部署 HTML 页面到 GitHub Pages
+      # 使用 peaceiris/actions-gh-pages 将 public/ 目录发布到 gh-pages 分支
+      - name: 部署到 GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          # 保留历史归档文件，不要每次清空
+          keep_files: true
+          commit_message: "更新每日资讯 - ${{ github.run_number }}"
